@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SoftLearn - Login</title>
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inria+Serif:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'custom-dark': '#292929',
+            'custom-card': '#BDBDBD',
+            'custom-input': '#A0A0A0',
+            'custom-button': '#1E1E1E',
+          },
+          fontFamily: {
+            inria: ['"Inria Serif"', 'serif'],
+            inter: ['"Inter"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    input:-webkit-autofill,
+    input:-webkit-autofill:hover, 
+    input:-webkit-autofill:focus, 
+    input:-webkit-autofill:active {
+      -webkit-box-shadow: 0 0 0 30px #BDBDBD inset !important;
+      -webkit-text-fill-color: #000000 !important;
+    }
+    body, #card, button, .text-3xl.font-inria, #bg-svg-path {
+      transition: background 0.4s, color 0.4s, opacity 0.4s, fill 0.4s, border-color 0.4s;
+    }
+  </style>
+
+</head>
+<body class="bg-custom-dark text-white font-inria flex items-center justify-center min-h-screen relative overflow-hidden">
+
+  <div class="absolute top-0 left-0 p-6 flex justify-between w-full text-sm text-gray-400">
+    <div class="flex items-center space-x-4">
+      <span class="text-3xl font-inria text-white">SoftLearn</span>
+    </div>
+    <div class="flex items-center space-x-2" onclick="mudarCor()">
+  <svg id="theme-toggle-light-icon" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-yellow-500 cursor-pointer" style="display:block" viewBox="0 0 20 20" fill="currentColor">
+        <path fill-rule="evenodd" d="M10 2a1 1 0 0 1 1 1v1a1 1 0 1 1-2 0V3a1 1 0 0 1 1-1m4 8a4 4 0 1 1-8 0a4 4 0 0 1 8 0m-.464 4.95l.707.707a1 1 0 0 0 1.414-1.414l-.707-.707a1 1 0 0 0-1.414 1.414m2.12-10.607a1 1 0 0 1 0 1.414l-.706.707a1 1 0 1 1-1.414-1.414l.707-.707a1 1 0 0 1 1.414 0M17 11a1 1 0 1 0 0-2h-1a1 1 0 1 0 0 2zm-7 4a1 1 0 0 1 1 1v1a1 1 0 1 1-2 0v-1a1 1 0 0 1 1-1M5.05 6.464A1 1 0 1 0 6.465 5.05l-.708-.707a1 1 0 0 0-1.414 1.414zm1.414 8.486l-.707.707a1 1 0 0 1-1.414-1.414l.707-.707a1 1 0 0 1 1.414 1.414M4 11a1 1 0 1 0 0-2H3a1 1 0 0 0 0 2z" clip-rule="evenodd" />
+      </svg>
+  <svg id="theme-toggle-dark-icon" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-yellow-500 cursor-pointer" style="display:none" viewBox="0 0 20 20" fill="currentColor">
+        <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
+      </svg>
+    </div>
+  </div>
+
+  <div class="w-96 bg-custom-card p-8 rounded-lg shadow-lg flex flex-col items-center z-10" id="card">
+    <img src="img/Raising hand-bro 1.png" alt="Ilustração de login" class="w-56 -mt-36">
+
+    <h2 class="text-xl text-black mt-8 font-inria">Bem-Vindo ao SoftLean!</h2>
+    
+    <form class="w-full mt-6">
+      <div class="mb-4">
+        <label for="username" class="block text-sm text-black mb-1 font-inria">Usuário:</label>
+        <input type="text" id="username" class="w-full bg-transparent border-b border-black text-black font-inria focus:outline-none py-1">
+      </div>
+      <div class="mb-6">
+        <label for="password" class="block text-sm text-black mb-1 font-inria">Senha:</label>
+        <input type="password" id="password" class="w-full bg-transparent border-b border-black text-black font-inria focus:outline-none py-1">
+      </div>
+      <a href="#" class="block text-xs text-black  hover:underline mb-6 font-inria">Não tem uma conta? <span class="text-[#1A01FD]">Clique aqui</span></a>
+      <button type="submit" class="w-full bg-custom-button text-white py-2 rounded-lg text-lg font-semibold hover:bg-gray-800 transition-colors font-inria">
+        login
+      </button>
+    </form>
+  </div>
+
+  <div class="absolute bottom-[-50px] w-full z-0">
+    <svg id="bg-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path id="bg-svg-path" fill="#FFF" fill-opacity="1" d="M0,128L48,154.7C96,181,192,235,288,234.7C384,235,480,181,576,186.7C672,192,768,256,864,266.7C960,277,1056,235,1152,202.7C1248,171,1344,149,1392,138.7L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
+  </div>
+</body>
+<script>
+let temaManual = false;
+function mudarCor(){
+  temaManual = true;
+  const body = document.body;
+  const card = document.getElementById('card');
+  const labels = document.querySelectorAll('label, .text-black, .text-gray-800');
+  const button = document.querySelector('button');
+  const softlearn = document.querySelector('.text-3xl.font-inria');
+  const svgPath = document.getElementById('bg-svg-path');
+  const dark = body.classList.contains('bg-custom-dark');
+  body.classList.toggle('bg-custom-dark', !dark);
+  body.classList.toggle('bg-[#EFEFEF]', dark);
+  body.classList.toggle('text-white', !dark);
+  body.classList.toggle('text-black', dark);
+  card.classList.toggle('bg-custom-card', !dark);
+  card.classList.toggle('bg-[#FFFFFF]', dark);
+  button.classList.toggle('bg-custom-button', !dark);
+  button.classList.toggle('bg-[#FFC100]', dark);
+  button.classList.toggle('text-white', !dark);
+  button.classList.toggle('text-black', dark);
+  labels.forEach(l => {
+    l.classList.toggle('text-black', !dark);
+    l.classList.toggle('text-gray-800', dark);
+  });
+  if (softlearn) {
+    softlearn.classList.toggle('text-white', !dark);
+    softlearn.classList.toggle('text-black', dark);
+  }
+  if (svgPath) {
+    svgPath.setAttribute('fill', dark ? '#FFC100' : '#FFF');  
+  }
+document.getElementById('theme-toggle-dark-icon').style.display = dark ? 'block' : 'none';
+document.getElementById('theme-toggle-light-icon').style.display = dark ? 'none' : 'block';
+}
+window.addEventListener('DOMContentLoaded', function() {
+  if (temaManual) return;
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const body = document.body;
+  const isDark = body.classList.contains('bg-custom-dark');
+  if (prefersDark && !isDark) {
+    mudarCor();
+  } else if (!prefersDark && isDark) {
+    mudarCor();
+  }
+});
+</script>
+</html>
